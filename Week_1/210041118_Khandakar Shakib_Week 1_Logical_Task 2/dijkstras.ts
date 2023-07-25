@@ -1,5 +1,10 @@
 import {Edge} from './types'
 
+/**
+ * Edges from and to must be in incremental order.
+ * Example: createEdge(0, 1, 5) is Ok.
+ *          createEdge(1, 0, 5) is not Ok.
+ */
 function createEdge(from: number, to: number, cost: number) {
     return { from, to, cost };
 }
@@ -7,6 +12,7 @@ function createEdge(from: number, to: number, cost: number) {
 
 /*
  * Dijkstra's Algorithm
+ * For Undirected graphs
 */
 function dijkstra(edges: Edge[], V: number, start = 0) {
     let distances: number[] = new Array(V).fill(Infinity);
